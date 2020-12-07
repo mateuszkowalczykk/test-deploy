@@ -1,9 +1,8 @@
-
 version: 2
 jobs:
   build:
 
-    working_directory: ~/ test-deploy
+    working_directory: ~/test-deploy-12
 
     docker:
       - image: circleci/openjdk:11-stretch
@@ -13,14 +12,14 @@ jobs:
       - checkout
 
       - restore_cache:
-          key:  test-deploy-{{ checksum "pom.xml" }}
+          key: test-deploy-{{ checksum "pom.xml" }}
 
       - run: mvn dependency:go-offline
 
       - save_cache:
           paths:
             - ~/.m2
-          key:  test-deploy-{{ checksum "pom.xml" }}
+          key: test-deploy-{{ checksum "pom.xml" }}
 
       - run: mvn package
 
@@ -28,4 +27,4 @@ jobs:
           path: target/surefire-reports
 
       - store_artifacts:
-          path: target/ test-deploy-1.0-SNAPSHOT.jar
+          path: target/test-deploy-1.0-SNAPSHOT.jar
