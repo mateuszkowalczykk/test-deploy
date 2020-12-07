@@ -43,5 +43,13 @@
         </plugins>
     </build>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub mateuszkowalczykk Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/mateuszkowalczykk/circlecitest</url>
+        </repository>
+    </distributionManagement>
+
 
 </project>
