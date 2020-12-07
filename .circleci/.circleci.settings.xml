@@ -20,7 +20,7 @@
                 <repository>
                     <id>github</id>
                     <name>GitHub mateuszkowalczykk Apache Maven Packages</name>
-                    <url>https://maven.pkg.github.com/mateuszkowalczykk/circlecitest</url>
+                    <url>https://maven.pkg.github.com/mateuszkowalczykk/test-deploy</url>
                 </repository>
             </repositories>
         </profile>
