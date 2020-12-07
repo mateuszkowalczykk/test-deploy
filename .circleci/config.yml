@@ -21,7 +21,7 @@ jobs:
             - ~/.m2
           key: test-deploy-{{ checksum "pom.xml" }}
 
-      - run: mvn package
+      - run: mvn -s .circleci.settings.xml deploy
 
       - store_test_results:
           path: target/surefire-reports
