@@ -28,12 +28,11 @@ jobs:
             - ~/.m2
           key: test-deploy-{{ checksum "pom.xml" }}
 
-      - cleaning:
-        - run: mvn clean
-          -
-      - deploy:
-        - run: mvn -s .circleci/.circleci.settings.xml deploy
-          -
+
+      - run: mvn clean
+
+      - run: mvn -s .circleci/.circleci.settings.xml deploy
+
       - generate_test_report:
         - run: mvn surefire-report:report-only
 
