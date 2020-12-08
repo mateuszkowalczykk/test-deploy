@@ -43,14 +43,15 @@ jobs:
 
     steps:
       - run: mvn surefire-report:report-only
+          when: always
 
 workflows:
   workflow:
     jobs:
       - build:
-          context: GITHUB_TOKEN
-          post-steps:
-            - generate_test_result
+      - generate_test_result
+        requires:
+          - build
 
 
 
