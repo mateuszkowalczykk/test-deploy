@@ -6,7 +6,8 @@ workflows:
       - build:
           context: GITHUB_TOKEN
           post-steps:
-            run: mvn surefire-report:report-only
+            run:
+              command: mvn surefire-report:report-only
 
 
 jobs:
