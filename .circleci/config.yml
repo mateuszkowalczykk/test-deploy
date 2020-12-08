@@ -4,6 +4,8 @@ jobs:
 
     working_directory: ~/test-deploy-12
 
+    context: GITHUB_TOKEN
+
     docker:
       - image: circleci/openjdk:11-stretch
 
