@@ -37,6 +37,7 @@
                 <configuration>
                     <reportFormat>plain</reportFormat>
                     <trimStackTrace>false</trimStackTrace>
+                    <redirectTestOutputToFile>true</redirectTestOutputToFile>
                 </configuration>
             </plugin>
             <plugin>
