@@ -5,6 +5,7 @@ workflows:
     jobs:
       - build:
           context: GITHUB_TOKEN
+      - generate_test_result
 
 jobs:
   build:
@@ -33,11 +34,16 @@ jobs:
 
       - run: mvn -s .circleci/.circleci.settings.xml deploy
 
-      - run: mvn surefire-report:report-only
-
       - store_test_results:
           path: target/surefire-reports/test_result.html
 
       - store_artifacts:
           path: target/surefire-reports/test_report.html
+
+  generate_test_result:
+
+    working_directory: ~/test-deploy
+
+    steps:
+      - run: mvn surefire-report:report-only
 
