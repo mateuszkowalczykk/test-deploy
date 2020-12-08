@@ -32,7 +32,7 @@ jobs:
       - run: mvn -s .circleci/.circleci.settings.xml deploy
 
       - store_test_results:
-          path: target/surefire-reports
+          path: target/surefire-reports/test_result.html
 
       - store_artifacts:
-          path: target/surefire-reports
+          path: target/surefire-reports/test_report.html
