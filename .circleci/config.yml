@@ -33,8 +33,11 @@ jobs:
 
       - run: mvn -s .circleci/.circleci.settings.xml deploy
 
-      - run: mvn surefire-report:report-only
-          when: always
+      - run:
+          name: Run on fail status
+          command: |
+            echo "I am result of above failed job"
+          when: on_fail
 
       - store_test_results:
           path: target/surefire-reports/test_result.html
