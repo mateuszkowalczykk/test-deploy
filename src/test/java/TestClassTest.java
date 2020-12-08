@@ -6,4 +6,11 @@ public class TestClassTest {
     void should_return_test() {
         Assertions.assertThat(TestClass.test()).isEqualTo("test");
     }
+
+
+    @Test
+    void should_fail() {
+        Assertions.assertThat(TestClass.test()).isEqualTo("");
+    }
+
 }
