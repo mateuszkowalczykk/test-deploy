@@ -1,9 +1,10 @@
 version: 2.1
 
 workflows:
-  jobs:
-    - build:
-        context: GITHUB_TOKEN
+  workflow:
+    jobs:
+      - build:
+          context: GITHUB_TOKEN
 
 jobs:
   build:
