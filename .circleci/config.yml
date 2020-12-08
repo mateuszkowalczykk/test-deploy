@@ -1,5 +1,10 @@
 version: 2.1
 
+workflows:
+  workflow:
+    jobs:
+      - build:
+          context: GITHUB_TOKEN
 
 jobs:
   build:
@@ -28,30 +33,11 @@ jobs:
 
       - run: mvn -s .circleci/.circleci.settings.xml deploy
 
+      - run: mvn surefire-report:report-only
+          when: always
+
       - store_test_results:
           path: target/surefire-reports/test_result.html
 
       - store_artifacts:
           path: target/surefire-reports/test_report.html
-
-  generate_test_result:
-
-    working_directory: ~/test-deploy
-
-    docker:
-      - image: circleci/openjdk:11-stretch
-
-    steps:
-      - run: mvn surefire-report:report-only
-          when: always
-
-workflows:
-  workflow:
-    jobs:
-      - build:
-      - generate_test_result
-        requires:
-          - build
-
-
-
