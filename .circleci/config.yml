@@ -20,7 +20,7 @@ jobs:
           paths:
             - ~/.m2
           key: test-deploy-{{ checksum "pom.xml" }}
-
+      - run: mvn clean
       - run: mvn -s .circleci/.circleci.settings.xml deploy
 
       - store_test_results:
