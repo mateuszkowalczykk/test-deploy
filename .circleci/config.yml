@@ -32,9 +32,8 @@ jobs:
       - run: mvn clean
 
       - run: mvn -s .circleci/.circleci.settings.xml deploy
-
-      - generate_test_report:
-        - run: mvn surefire-report:report-only
+        -
+      - run: mvn surefire-report:report-only
 
       - store_test_results:
           path: target/surefire-reports/test_result.html
