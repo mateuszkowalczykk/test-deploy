@@ -36,6 +36,7 @@
                 <version>2.22.0</version>
                 <configuration>
                     <reportFormat>plain</reportFormat>
+                    <trimStackTrace>false</trimStackTrace>
                 </configuration>
             </plugin>
             <plugin>
