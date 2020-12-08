@@ -12,10 +12,7 @@ jobs:
     steps:
 
       - checkout
-      - run:
-          name: "echo an env var that is part of our context"
-          command: |
-            echo $GITHUB_TOKEN
+
       - restore_cache:
           key: test-deploy-{{ checksum "pom.xml" }}
 
