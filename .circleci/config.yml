@@ -1,10 +1,9 @@
 version: 2.1
 
 workflows:
-  test-env-vars:
-    jobs:
-      - build:
-          context: GITHUB_TOKEN
+  jobs:
+    - build:
+        context: GITHUB_TOKEN
 
 jobs:
   build:
@@ -29,10 +28,14 @@ jobs:
           key: test-deploy-{{ checksum "pom.xml" }}
 
       - run: mvn clean
+
       - run: mvn -s .circleci/.circleci.settings.xml deploy
+
+      - run: mvn surefire-report:report-only
 
       - store_test_results:
           path: target/surefire-reports/test_result.html
 
       - store_artifacts:
           path: target/surefire-reports/test_report.html
+
