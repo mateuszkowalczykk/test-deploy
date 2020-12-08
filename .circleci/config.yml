@@ -5,7 +5,7 @@ workflows:
     jobs:
       - build:
           context: GITHUB_TOKEN
-          post_steps:
+          post-steps:
             - generate_test_result
 
 
