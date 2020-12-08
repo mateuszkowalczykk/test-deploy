@@ -38,6 +38,8 @@ jobs:
 
       - store_artifacts:
           path: target/surefire-reports/test_report.html
+      - store_artifacts:
+          path: target/test.deploy-1.0-SNAPSHOT.jar
 
 workflows:
   workflow:
