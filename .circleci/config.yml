@@ -1,14 +1,5 @@
 version: 2.1
 
-workflows:
-  workflow:
-    jobs:
-      - build:
-          context: GITHUB_TOKEN
-          post-steps:
-            steps:
-              - run: mvn surefire-report:report-only
-
 
 jobs:
   build:
@@ -52,4 +43,14 @@ jobs:
 
     steps:
       - run: mvn surefire-report:report-only
+
+workflows:
+  workflow:
+    jobs:
+      - build:
+          context: GITHUB_TOKEN
+          post-steps:
+            - run: mvn surefire-report:report-only
+
+
 
