@@ -1,11 +1,5 @@
 version: 2.1
 
-workflows:
-  workflow:
-    jobs:
-      - build:
-          context: GITHUB_TOKEN
-
 jobs:
   build:
 
@@ -37,10 +31,16 @@ jobs:
           name: Generate test report
           command: |
             mvn surefire-report:report-only
-          when: on_fail
+          when: always
 
       - store_test_results:
-          path: target/surefire-reports/test_result.html
+          path: target/surefire-reports/test_report.html
 
       - store_artifacts:
           path: target/surefire-reports/test_report.html
+
+workflows:
+  workflow:
+    jobs:
+      - build:
+          context: GITHUB_TOKEN
